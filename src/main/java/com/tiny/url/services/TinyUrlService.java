@@ -223,11 +223,8 @@ public class TinyUrlService {
      * @return normalized URL
      */
     private String normalizeUrl(String url) {
-        String normalized = url.trim().toLowerCase();
-        while (normalized.endsWith("/")) {
-            normalized = normalized.substring(0, normalized.length() - 1);
-        }
-        return normalized;
+//        todo
+        return url;
     }
 
     private boolean isValidUrl(String url) {
