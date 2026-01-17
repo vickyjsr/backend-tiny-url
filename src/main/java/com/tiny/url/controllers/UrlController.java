@@ -31,6 +31,7 @@ import java.net.URI;
 @Tag(name = "URL Shortener", description = "URL Shortener API endpoints")
 public class UrlController {
 
+
     private final TinyUrlService tinyUrlService;
 
     @Autowired
