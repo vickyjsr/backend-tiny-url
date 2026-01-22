@@ -13,19 +13,21 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "https://www.slashurl.com",
                         "https://slashurl.com",
-                        "slashurl.com",
-                        "slashurl.com/",
                         "http://www.slashurl.com",
                         "http://slashurl.com",
+                        "slashurl.com",
+                        "slashurl.com/",
                         "https://apis.slashurl.com",
                         "http://apis.slashurl.com",
-                        "apis.slashurl.com",
                         "http://localhost:3000",
-                        "http://143.110.255.217:3000"
+                        "http://localhost:3001",
+                        "http://3.109.139.251",
+                        "http://3.109.139.251:3000"
                 )
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                 .allowedHeaders("*")
-                .allowCredentials(false)
+                .exposedHeaders("*")
+                .allowCredentials(true)
                 .maxAge(3600);
     }
 }
