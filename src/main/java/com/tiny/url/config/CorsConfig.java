@@ -15,8 +15,6 @@ public class CorsConfig implements WebMvcConfigurer {
                         "https://slashurl.com",
                         "http://www.slashurl.com",
                         "http://slashurl.com",
-                        "slashurl.com",
-                        "slashurl.com/",
                         "https://apis.slashurl.com",
                         "http://apis.slashurl.com",
                         "http://localhost:3000",
@@ -24,7 +22,7 @@ public class CorsConfig implements WebMvcConfigurer {
                         "http://3.109.139.251",
                         "http://3.109.139.251:3000"
                 )
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD")
                 .allowedHeaders("*")
                 .exposedHeaders("*")
                 .allowCredentials(true)
