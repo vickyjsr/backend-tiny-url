@@ -51,6 +51,7 @@ public class Url {
     private Integer maxClicks;
 
     @Column(name = "click_count")
+    @Builder.Default
     private Integer clickCount = 0;
 
     public boolean isExpired() {
