@@ -1,0 +1,19 @@
+[Unit]
+Description=TinyURL Backend Service
+After=network.target mysql.service redis-server.service
+Wants=mysql.service redis-server.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/build/
+Environment="JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64"
+Environment="PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/bin/java -Xms64m -Xmx192m -XX:+UseSerialGC -XX:MaxMetaspaceSize=80m -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -jar /var/www/build/Tiny-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod --spring.config.location=file:/var/www/build/application-prod.properties
+Restart=always
+RestartSec=15
+StandardOutput=append:/var/log/app/backend.log
+StandardError=append:/var/log/app/backend.log
+
+[Install]
+WantedBy=multi-user.target

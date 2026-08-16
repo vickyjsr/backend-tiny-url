@@ -40,8 +40,21 @@ Swagger (non-prod): `http://localhost:8080/swagger-ui.html`
 - `url:original:{originalUrl}`
 - `analytics:clicks:{urlId}`
 
+## Production / redeploy
+
+Infrastructure templates and agent runbook live in **`deploy/`** (nginx, systemd, PM2, MySQL/Redis tuning).  
+**No MySQL or Redis data dumps** are stored — schema is recreated empty on next deploy.
+
+Start here: [`deploy/AGENTS.md`](deploy/AGENTS.md)
+
+```bash
+# On a fresh Ubuntu 24.04 Lightsail box:
+scp -r deploy slashurl:~/
+ssh slashurl 'bash ~/deploy/scripts/bootstrap-ubuntu.sh ~/deploy'
+```
+
 ## Production notes
 
 - Profile: `prod`
-- Override DB password with `DB_PASSWORD`
-- Prefer lean Hikari/Tomcat settings on small Lightsail instances
+- Override DB password with `SPRING_DATASOURCE_PASSWORD` / server properties (see `deploy/backend/`)
+- Prefer lean Hikari/Tomcat/JVM settings on ≤1GB Lightsail (unit file in `deploy/systemd/`)

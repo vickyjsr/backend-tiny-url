@@ -1,0 +1,4 @@
+Host slashurl
+    HostName <PUBLIC_IPV4>
+    User ubuntu
+    IdentityFile ~/.ssh/id_ed25519_personal

@@ -1,0 +1,5 @@
+# Append/merge into /etc/redis/redis.conf for 512MB–1GB Lightsail
+bind 127.0.0.1 -::1
+supervised systemd
+maxmemory 32mb
+maxmemory-policy allkeys-lru
