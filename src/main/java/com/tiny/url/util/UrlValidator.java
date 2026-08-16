@@ -1,4 +1,4 @@
-package com.tiny.url.utils;
+package com.tiny.url.util;
 
 import com.tiny.url.exception.InvalidUrlException;
 

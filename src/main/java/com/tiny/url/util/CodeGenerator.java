@@ -1,6 +1,5 @@
-package com.tiny.url.helpers;
+package com.tiny.url.util;
 
-import com.tiny.url.constants.Constants;
 import com.tiny.url.repository.UrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

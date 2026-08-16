@@ -1,14 +1,14 @@
-package com.tiny.url.adapter;
+package com.tiny.url.mapper;
 
 import com.tiny.url.dto.UrlResponse;
-import com.tiny.url.models.Url;
+import com.tiny.url.entity.Url;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class UrlAdapter {
+public class UrlMapper {
 
     public UrlResponse toUrlResponse(Url url) {
         if (url == null) {

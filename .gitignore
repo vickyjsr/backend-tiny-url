@@ -35,3 +35,12 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### OS / local ###
+.DS_Store
+**/.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+application-local.properties

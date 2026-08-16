@@ -1,6 +1,6 @@
-package com.tiny.url.controllers;
+package com.tiny.url.controller;
 
-import com.tiny.url.services.TinyUrlService;
+import com.tiny.url.service.TinyUrlService;
 import com.tiny.url.dto.UrlResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

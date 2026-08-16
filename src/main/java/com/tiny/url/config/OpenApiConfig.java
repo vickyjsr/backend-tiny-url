@@ -8,43 +8,36 @@ import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.util.List;
 
-// todo currently not in used
-// todo will disable prod swagger, once testing is over
-//@Configuration
+@Configuration
+@Profile("!prod")
 public class OpenApiConfig {
 
-    @Value("${server.port}")
+    @Value("${server.port:8080}")
     private String serverPort;
 
     @Bean
-    public OpenAPI myOpenAPI() {
-        Server devServer = new Server()
+    public OpenAPI slashUrlOpenApi() {
+        Server localServer = new Server()
                 .url("http://localhost:" + serverPort)
-                .description("Development server");
-
-        Server prodServer = new Server()
-                .description("Production server");
+                .description("Local development");
 
         Contact contact = new Contact()
-                .name("URL Shortener Team")
-                .email("gouravmodi010@gmail.com");
-
-        License mitLicense = new License()
-                .name("MIT License")
-                .url("https://choosealicense.com/licenses/mit/");
+                .name("SlashURL")
+                .email("support@slashurl.com");
 
         Info info = new Info()
-                .title("URL Shortener API")
+                .title("SlashURL API")
                 .version("1.0.0")
                 .contact(contact)
-                .description("This API exposes endpoints to manage URL shortening operations.")
-                .license(mitLicense);
+                .description("URL shortening API")
+                .license(new License().name("MIT License").url("https://choosealicense.com/licenses/mit/"));
 
         return new OpenAPI()
                 .info(info)
-                .servers(List.of(devServer, prodServer));
+                .servers(List.of(localServer));
     }
-} 
+}

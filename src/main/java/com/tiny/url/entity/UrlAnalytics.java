@@ -1,4 +1,4 @@
-package com.tiny.url.models;
+package com.tiny.url.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
